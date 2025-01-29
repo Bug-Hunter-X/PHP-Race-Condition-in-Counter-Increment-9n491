@@ -1,0 +1,1 @@
+This code suffers from a race condition.  If two requests hit the `increaseCounter` function nearly simultaneously, the counter may not be incremented correctly.  The `$counter` variable is read, incremented, and then written back. If two threads read the value concurrently, both will use the same old value, leading to an incorrect final count.
